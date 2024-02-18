@@ -9,6 +9,8 @@ add_executable(lett
         src/lt_chunk.c
         src/lt_chunk.h
         src/lt_utils.c
-        src/lt_utils.h)
+        src/lt_utils.h
+        src/lt_vm.c
+        src/lt_vm.h)
 
 target_compile_options(lett PRIVATE -Wall -Wextra -Wpedantic -Werror)

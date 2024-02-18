@@ -10,11 +10,14 @@ int main(int argc, char **argv)
     struct lt_chunk chunk;
     lt_chunk_init(&chunk);
 
-    for (int i = 0; i < 20; i++) {
-        printf("before chunk capacity: %zu, chunk count: %zu\n", chunk.capacity, chunk.count);
-        lt_chunk_add(&chunk, LT_OP_HALT);
-        printf("after chunk capacity: %zu, chunk count: %zu\n", chunk.capacity, chunk.count);
-    }
+    lt_chunk_add(&chunk, LT_OP_HALT);
+
+    struct lt_vm vm;
+    lt_vm_init(&vm);
+
+    lt_vm_execute(&vm, &chunk);
+
+    lt_vm_free(&vm);
 
     lt_chunk_free(&chunk);
 
