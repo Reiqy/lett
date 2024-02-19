@@ -13,6 +13,8 @@ add_executable(lett
         src/lt_vm.c
         src/lt_vm.h
         src/lt_lexer.c
-        src/lt_lexer.h)
+        src/lt_lexer.h
+        src/lt_value.c
+        src/lt_value.h)
 
 target_compile_options(lett PRIVATE -Wall -Wextra -Wpedantic -Werror)
