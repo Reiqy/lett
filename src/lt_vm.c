@@ -17,7 +17,7 @@ static void vm_loop(struct lt_vm *vm);
 void lt_vm_execute(struct lt_vm *vm, struct lt_chunk *chunk)
 {
     vm->chunk = chunk;
-    vm->ip = chunk->code;
+    vm->ip = chunk->code.array;
     vm_loop(vm);
 }
 

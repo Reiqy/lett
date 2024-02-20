@@ -1,30 +1,16 @@
 #include "lt_chunk.h"
 
-#include "lt_utils.h"
-
 void lt_chunk_init(struct lt_chunk *chunk)
 {
-    chunk->code = NULL;
-    chunk->capacity = 0;
-    chunk->count = 0;
+    lt_array_lt_byte_init(&chunk->code);
 }
 
 void lt_chunk_free(struct lt_chunk *chunk)
 {
-    if (chunk->code != NULL) {
-        lt_free(chunk->code);
-    }
-
-    lt_chunk_init(chunk);
+    lt_array_lt_byte_free(&chunk->code);
 }
 
-void lt_chunk_add(struct lt_chunk *chunk, uint8_t byte)
+void lt_chunk_add(struct lt_chunk *chunk, lt_byte byte)
 {
-    if (chunk->capacity <= chunk->count) {
-        chunk->capacity = lt_grow(chunk->capacity);
-        chunk->code = lt_realloc(chunk->code, chunk->capacity);
-    }
-
-    chunk->code[chunk->count] = byte;
-    chunk->count++;
+    lt_array_lt_byte_add(&chunk->code, byte);
 }

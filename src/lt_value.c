@@ -13,3 +13,5 @@ void lt_value_print(struct lt_value value, enum lt_type type)
             return;
     }
 }
+
+LT_DEFINE_ARRAY(lt_value)

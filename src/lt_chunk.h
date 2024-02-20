@@ -3,14 +3,15 @@
 
 #include <stdint.h>
 
+#include "lt_collections.h"
+#include "lt_value.h"
+
 enum lt_op_code {
     LT_OP_HALT,
 };
 
 struct lt_chunk {
-    uint8_t *code;
-    size_t capacity;
-    size_t count;
+    struct lt_array_lt_byte code;
 };
 
 void lt_chunk_init(struct lt_chunk *chunk);
